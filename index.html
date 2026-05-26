@@ -180,32 +180,63 @@
     to { --spark-angle: 360deg; }
   }
 
-  /* Spark on filled (yellow) button — white streak */
-  .btn-spark-filled {
+  /* Electric turbulent button */
+  .elec-btn-wrap {
     position: relative;
+    display: inline-flex;
     isolation: isolate;
   }
-  .btn-spark-filled::after {
-    content: '';
+  .elec-btn-wrap.block-btn {
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .elec-bd, .elec-g1, .elec-g2 {
     position: absolute;
-    inset: -1px;
-    padding: 1px;
-    background: conic-gradient(
-      from var(--spark-angle),
-      transparent 0%,
-      transparent 82%,
-      rgba(255,255,255,0.5) 90%,
-      rgba(255,255,255,0.95) 93%,
-      rgba(255,255,255,0.5) 96%,
-      transparent 100%
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: outline-spark 3s linear infinite;
+    inset: 0;
     pointer-events: none;
   }
+  .elec-bd {
+    border: 1.5px solid #FFC107;
+    filter: url(#electric-btn-filter);
+  }
+  .elec-g1 {
+    border: 1.5px solid rgba(255,193,7,0.65);
+    filter: blur(1px);
+  }
+  .elec-g2 {
+    border: 1.5px solid #FFC107;
+    filter: blur(5px);
+  }
+  .elec-bg-glow {
+    position: absolute;
+    inset: -4px;
+    filter: blur(20px);
+    opacity: 0.18;
+    background: #FFC107;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .elec-label {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: rgba(255,193,7,0.06);
+    color: #FFC107;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background .2s;
+  }
+  .elec-label:hover { background: rgba(255,193,7,0.1); }
 
   /* Capacity bars */
   .cap-bar {
@@ -222,6 +253,34 @@
 </style>
 </head>
 <body>
+
+<!-- SVG turbulence filter for electric buttons -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+  <defs>
+    <filter id="electric-btn-filter" colorInterpolationFilters="sRGB" x="-20%" y="-50%" width="140%" height="200%">
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1"/>
+      <feOffset in="noise1" dx="0" dy="0" result="oN1">
+        <animate attributeName="dy" values="700;0" dur="6s" repeatCount="indefinite" calcMode="linear"/>
+      </feOffset>
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1"/>
+      <feOffset in="noise2" dx="0" dy="0" result="oN2">
+        <animate attributeName="dy" values="0;-700" dur="6s" repeatCount="indefinite" calcMode="linear"/>
+      </feOffset>
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise3" seed="2"/>
+      <feOffset in="noise3" dx="0" dy="0" result="oN3">
+        <animate attributeName="dx" values="490;0" dur="6s" repeatCount="indefinite" calcMode="linear"/>
+      </feOffset>
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise4" seed="2"/>
+      <feOffset in="noise4" dx="0" dy="0" result="oN4">
+        <animate attributeName="dx" values="0;-490" dur="6s" repeatCount="indefinite" calcMode="linear"/>
+      </feOffset>
+      <feComposite in="oN1" in2="oN2" result="part1"/>
+      <feComposite in="oN3" in2="oN4" result="part2"/>
+      <feBlend in="part1" in2="part2" mode="color-dodge" result="combined"/>
+      <feDisplacementMap in="SourceGraphic" in2="combined" scale="15" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+  </defs>
+</svg>
 
 <!-- ══════════════ HEADER ══════════════ -->
 <header class="fixed top-0 left-0 right-0 z-50">
@@ -281,11 +340,11 @@
         </div>
 
         <div class="flex flex-wrap gap-4">
-          <a href="#contacto"
-             class="text-black px-8 py-4 font-semibold transition-all btn-spark-filled text-sm"
-             style="background:#FFC107;">
-            Solicitar Cotización
-          </a>
+          <div class="elec-btn-wrap">
+            <div class="elec-bd"></div><div class="elec-g1"></div><div class="elec-g2"></div>
+            <div class="elec-bg-glow"></div>
+            <a href="#contacto" class="elec-label">Solicitar Cotización</a>
+          </div>
           <a href="tel:5545501945"
              class="border border-gray-600 hover:border-yellow-400 text-white px-8 py-4 font-semibold transition-all text-sm flex items-center gap-2">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.47 5.47l.772-1.548a1 1 0 011.06-.539l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
@@ -429,11 +488,11 @@
           </div>
 
         </div>
-        <a href="#contacto"
-           class="block w-full py-4 text-black font-semibold transition-all text-center tracking-wide mt-8 text-sm hover:opacity-90 btn-spark-filled"
-           style="background:#FFC107;">
-          Solicitar Cotización
-        </a>
+        <div class="elec-btn-wrap block-btn">
+          <div class="elec-bd"></div><div class="elec-g1"></div><div class="elec-g2"></div>
+          <div class="elec-bg-glow"></div>
+          <a href="#contacto" class="elec-label">Solicitar Cotización</a>
+        </div>
       </div>
 
     </div>
@@ -565,11 +624,11 @@
             </div>
           </div>
 
-          <button type="submit"
-                  class="w-full py-4 text-black font-semibold transition-all text-sm tracking-wide hover:opacity-90 btn-spark-filled"
-                  style="background:#FFC107;">
-            Enviar Solicitud
-          </button>
+          <div class="elec-btn-wrap block-btn" style="margin-top:0;">
+            <div class="elec-bd"></div><div class="elec-g1"></div><div class="elec-g2"></div>
+            <div class="elec-bg-glow"></div>
+            <button type="submit" class="elec-label">Enviar Solicitud</button>
+          </div>
         </form>
       </div>
 
