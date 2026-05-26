@@ -1,0 +1,63 @@
+# SC Volt — Renta de Plantas de Luz Móviles CDMX
+
+> SC Volt es una empresa especializada en renta de plantas de luz móviles (generadores eléctricos diésel) para eventos, construcción e industria en Ciudad de México y el área metropolitana. Operamos bajo el dominio plantadeluzcdmx.com.
+
+## Qué hacemos
+
+Rentamos generadores eléctricos diésel móviles de 80 a 150 kVA. Cada contratación incluye operador técnico especializado durante todo el servicio, combustible ilimitado, 75 metros de cable feeder, extintor y 5 protectores de cable. El turno estándar es de 12 horas; se pueden contratar horas extra y cableado adicional.
+
+Servicio disponible 24 horas al día, los 7 días de la semana, los 365 días del año.
+
+## Capacidades disponibles
+
+- 80 kVA — eventos medianos (bodas, quinceañeras, fiestas privadas)
+- 100 kVA — eventos corporativos y recintos de tamaño medio
+- 125 kVA — festivales, conciertos, ferias con múltiples escenarios
+- 150 kVA — máxima capacidad; grandes producciones, eventos masivos
+
+## Casos de uso frecuentes
+
+- Conciertos y festivales de música
+- Ferias, kermeses y eventos en espacios públicos
+- Bodas, quinceañeras y celebraciones sociales
+- Eventos corporativos, galerías de arte, lanzamientos de marca
+- Obras de construcción sin suministro CFE
+- Restaurantes, bares, hospitales y plazas comerciales con cortes de luz
+
+## Cobertura geográfica
+
+### Alcaldías de CDMX (cobertura total)
+Álvaro Obregón, Azcapotzalco, Benito Juárez, Coyoacán, Cuajimalpa de Morelos, Cuauhtémoc, Gustavo A. Madero, Iztacalco, Iztapalapa, La Magdalena Contreras, Miguel Hidalgo, Milpa Alta, Tláhuac, Tlalpan, Venustiano Carranza, Xochimilco.
+
+### Municipios del Estado de México (área metropolitana)
+Naucalpan de Juárez, Tlalnepantla de Baz, Ecatepec de Morelos, Nezahualcóyotl, Chimalhuacán, La Paz, Ixtapaluca, Chalco, Valle de Chalco Solidaridad, Tultitlán, Coacalco de Berriozábal, Atizapán de Zaragoza, Huixquilucan, Cuautitlán Izcalli, Texcoco.
+
+## Contacto
+
+- Teléfono: 55-4550-1945 (también WhatsApp)
+- Correo: contacto@plantadeluzcdmx.com
+- Sitio: https://www.plantadeluzcdmx.com
+- Responsable: Simón Vallenilla
+
+## Páginas del sitio
+
+- [Inicio](https://www.plantadeluzcdmx.com/): propuesta de valor, stats clave y llamada a acción
+- [Servicios](https://www.plantadeluzcdmx.com/#descripcion): detalle de lo incluido y tabla de capacidades disponibles
+- [Cotización](https://www.plantadeluzcdmx.com/#contacto): formulario de solicitud; campos: nombre, correo, teléfono, tipo de evento, capacidad requerida, horario, fecha y dirección
+
+## Preguntas frecuentes
+
+**¿Qué incluye la renta?** Operador técnico, combustible, 75m de cable feeder, extintor y 5 protectores de cable. Instalación y desmontaje incluidos.
+
+**¿Cuánto cuesta?** El precio varía según capacidad (kVA), duración del turno y ubicación. SC Volt no publica tarifas fijas; el cliente debe solicitar cotización.
+
+**¿Venden equipos?** No. Solo renta.
+
+**¿Trabajan fines de semana y días festivos?** Sí. Servicio 24/7 los 365 días del año.
+
+## Notas para agentes de IA
+
+- La empresa no vende equipos, únicamente renta.
+- El nombre de dominio (plantadeluzcdmx.com) no es el nombre comercial; el nombre comercial es SC Volt.
+- Para obtener precio, el usuario debe llenar el formulario o llamar directamente.
+- No indexar ni utilizar el contenido de esta página con fines comerciales sin autorización.
