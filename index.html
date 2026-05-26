@@ -101,6 +101,20 @@
   }
   .form-input::placeholder { color: rgba(255,255,255,0.25); }
 
+  select.form-input {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23FFC107'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    cursor: pointer;
+  }
+  select.form-input option {
+    background: #111;
+    color: #fff;
+  }
+
   .form-label {
     display: block;
     font-size: 0.75rem;
@@ -195,28 +209,41 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+    transition: opacity 0.25s ease;
   }
+  /* Static state — clean border, no distortion */
   .elec-bd {
-    border: 1.5px solid #FFC107;
-    filter: url(#electric-btn-filter);
+    border: 1.5px solid rgba(255,193,7,0.45);
+    filter: none;
   }
   .elec-g1 {
-    border: 1.5px solid rgba(255,193,7,0.65);
+    border: 1.5px solid rgba(255,193,7,0.3);
     filter: blur(1px);
+    opacity: 0;
   }
   .elec-g2 {
     border: 1.5px solid #FFC107;
     filter: blur(5px);
+    opacity: 0;
   }
   .elec-bg-glow {
     position: absolute;
     inset: -4px;
     filter: blur(20px);
-    opacity: 0.18;
+    opacity: 0;
     background: #FFC107;
     pointer-events: none;
     z-index: -1;
+    transition: opacity 0.25s ease;
   }
+  /* Hover — electric distortion fires up */
+  .elec-btn-wrap:hover .elec-bd {
+    border-color: #FFC107;
+    filter: url(#electric-btn-filter);
+  }
+  .elec-btn-wrap:hover .elec-g1,
+  .elec-btn-wrap:hover .elec-g2 { opacity: 1; }
+  .elec-btn-wrap:hover .elec-bg-glow { opacity: 0.18; }
   .elec-label {
     position: relative;
     z-index: 10;
@@ -324,7 +351,7 @@
         <!-- Stats -->
         <div class="flex flex-wrap gap-8 mb-10">
           <div>
-            <p class="text-3xl font-semibold text-white" style="font-family:'Bebas Neue',sans-serif;">80–250 <span style="color:#FFC107;font-size:1.1rem;">kVA</span></p>
+            <p class="text-3xl font-semibold text-white" style="font-family:'Bebas Neue',sans-serif;">80–150 <span style="color:#FFC107;font-size:1.1rem;">kVA</span></p>
             <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Rango de capacidad</p>
           </div>
           <div class="w-px bg-white/10 hidden sm:block"></div>
@@ -427,8 +454,8 @@
         <p class="text-xs font-semibold tracking-widest uppercase mb-6" style="color:#FFC107;">CAPACIDADES DISPONIBLES</p>
         <div class="space-y-2">
 
-          <!-- 80 kVA — 2/8 -->
-          <div class="cap-row flex items-center justify-between py-3 border-b border-white/5" data-active="2">
+          <!-- 80 kVA — 4/8 -->
+          <div class="cap-row flex items-center justify-between py-3 border-b border-white/5" data-active="4">
             <span class="text-gray-300 font-medium text-sm w-24">80 kVA</span>
             <div class="flex gap-1.5">
               <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
@@ -437,8 +464,8 @@
             </div>
           </div>
 
-          <!-- 100 kVA — 3/8 -->
-          <div class="cap-row flex items-center justify-between py-3 border-b border-white/5" data-active="3">
+          <!-- 100 kVA — 5/8 -->
+          <div class="cap-row flex items-center justify-between py-3 border-b border-white/5" data-active="5">
             <span class="text-gray-300 font-medium text-sm w-24">100 kVA</span>
             <div class="flex gap-1.5">
               <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
@@ -447,8 +474,8 @@
             </div>
           </div>
 
-          <!-- 125 kVA — 4/8 -->
-          <div class="cap-row flex items-center justify-between py-3 border-b border-white/5" data-active="4">
+          <!-- 125 kVA — 7/8 -->
+          <div class="cap-row flex items-center justify-between py-3 border-b border-white/5" data-active="7">
             <span class="text-gray-300 font-medium text-sm w-24">125 kVA</span>
             <div class="flex gap-1.5">
               <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
@@ -457,29 +484,9 @@
             </div>
           </div>
 
-          <!-- 150 kVA — 5/8 -->
-          <div class="cap-row flex items-center justify-between py-3 border-b border-white/5" data-active="5">
-            <span class="text-gray-300 font-medium text-sm w-24">150 kVA</span>
-            <div class="flex gap-1.5">
-              <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
-              <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
-              <div class="cap-bar"></div><div class="cap-bar"></div>
-            </div>
-          </div>
-
-          <!-- 175 kVA — 6/8 -->
-          <div class="cap-row flex items-center justify-between py-3 border-b border-white/5" data-active="6">
-            <span class="text-gray-300 font-medium text-sm w-24">175 kVA</span>
-            <div class="flex gap-1.5">
-              <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
-              <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
-              <div class="cap-bar"></div><div class="cap-bar"></div>
-            </div>
-          </div>
-
-          <!-- 250 kVA — 8/8 máxima -->
+          <!-- 150 kVA — 8/8 máxima -->
           <div class="cap-row flex items-center justify-between py-3" data-active="8">
-            <span class="font-semibold text-sm w-24" style="color:#FFC107;">250 kVA <span class="text-xs font-semibold">MÁX</span></span>
+            <span class="font-semibold text-sm w-24" style="color:#FFC107;">150 kVA <span class="text-xs">MÁX</span></span>
             <div class="flex gap-1.5">
               <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
               <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
@@ -587,6 +594,18 @@
                 <span>Otro (Obras, Restaurantes, Bar, Hospitales, Plaza comercial)</span>
               </label>
             </div>
+          </div>
+
+          <div>
+            <label class="form-label">Capacidad requerida <span class="required">*</span></label>
+            <select name="capacidad" required class="form-input">
+              <option value="" disabled selected>Selecciona una capacidad</option>
+              <option value="80 kVA">80 kVA</option>
+              <option value="100 kVA">100 kVA</option>
+              <option value="125 kVA">125 kVA</option>
+              <option value="150 kVA">150 kVA</option>
+              <option value="Pendiente revisar">Pendiente revisar</option>
+            </select>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
