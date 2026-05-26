@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SC Volt – Renta de Plantas de Luz Móviles</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap"></noscript>
+<script defer src="https://cdn.tailwindcss.com"></script>
 <style>
   * { font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
   h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
@@ -309,11 +312,12 @@
   </defs>
 </svg>
 
+<main>
 <!-- ══════════════ HEADER ══════════════ -->
 <header class="fixed top-0 left-0 right-0 z-50">
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
     <a href="#" class="flex items-center select-none">
-      <img src="logo.jpeg" alt="SC Volt" class="h-10 w-auto object-contain">
+      <img src="logo.webp" alt="SC Volt" class="h-10 w-auto object-contain">
     </a>
     <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-400">
       <a href="#descripcion" class="hover:text-yellow-400 transition-colors">Servicios</a>
@@ -384,8 +388,9 @@
       <div class="relative flex items-center justify-center">
         <div class="absolute inset-0 blur-2xl pointer-events-none"
              style="background: radial-gradient(ellipse, rgba(180,80,0,0.3) 0%, transparent 70%);"></div>
-        <img src="planta.jpeg" alt="Planta de Luz SC Volt"
+        <img src="planta.webp" alt="Planta de Luz SC Volt"
              class="relative z-10 w-full max-w-xl object-contain"
+             fetchpriority="high" width="576" height="432"
              style="filter: drop-shadow(0 20px 60px rgba(0,0,0,0.8));">
       </div>
 
@@ -564,18 +569,18 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label class="form-label">Nombre <span class="required">*</span></label>
-              <input type="text" name="nombre" required placeholder="Tu nombre completo" class="form-input">
+              <label for="f-nombre" class="form-label">Nombre <span class="required">*</span></label>
+              <input id="f-nombre" type="text" name="nombre" required placeholder="Tu nombre completo" class="form-input">
             </div>
             <div>
-              <label class="form-label">Correo electrónico <span class="required">*</span></label>
-              <input type="email" name="correo" required placeholder="correo@ejemplo.com" class="form-input">
+              <label for="f-correo" class="form-label">Correo electrónico <span class="required">*</span></label>
+              <input id="f-correo" type="email" name="correo" required placeholder="correo@ejemplo.com" class="form-input">
             </div>
           </div>
 
           <div>
-            <label class="form-label">Número de teléfono <span class="required">*</span></label>
-            <input type="tel" name="telefono" required placeholder="55 0000 0000" class="form-input">
+            <label for="f-tel" class="form-label">Número de teléfono <span class="required">*</span></label>
+            <input id="f-tel" type="tel" name="telefono" required placeholder="55 0000 0000" class="form-input">
           </div>
 
           <div>
@@ -597,8 +602,8 @@
           </div>
 
           <div>
-            <label class="form-label">Capacidad requerida <span class="required">*</span></label>
-            <select name="capacidad" required class="form-input">
+            <label for="f-cap" class="form-label">Capacidad requerida <span class="required">*</span></label>
+            <select id="f-cap" name="capacidad" required class="form-input">
               <option value="" disabled selected>Selecciona una capacidad</option>
               <option value="80 kVA">80 kVA</option>
               <option value="100 kVA">100 kVA</option>
@@ -610,18 +615,18 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label class="form-label">Horario del evento <span class="required">*</span></label>
-              <input type="text" name="horario" required placeholder="Ej. 18:00 – 02:00" class="form-input">
+              <label for="f-horario" class="form-label">Horario del evento <span class="required">*</span></label>
+              <input id="f-horario" type="text" name="horario" required placeholder="Ej. 18:00 – 02:00" class="form-input">
             </div>
             <div>
-              <label class="form-label">Fecha del evento <span class="required">*</span></label>
-              <input type="date" name="fecha" required class="form-input" style="color-scheme:dark;">
+              <label for="f-fecha" class="form-label">Fecha del evento <span class="required">*</span></label>
+              <input id="f-fecha" type="date" name="fecha" required class="form-input" style="color-scheme:dark;">
             </div>
           </div>
 
           <div>
-            <label class="form-label">Dirección del evento <span class="required">*</span></label>
-            <input type="text" name="direccion" required placeholder="Calle, número, colonia, alcaldía" class="form-input">
+            <label for="f-dir" class="form-label">Dirección del evento <span class="required">*</span></label>
+            <input id="f-dir" type="text" name="direccion" required placeholder="Calle, número, colonia, alcaldía" class="form-input">
           </div>
 
           <div>
@@ -658,7 +663,7 @@
 <!-- ══════════════ FOOTER ══════════════ -->
 <footer class="py-10 border-t border-white/5" style="background:#050505;">
   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-    <img src="logo.jpeg" alt="SC Volt" class="h-9 w-auto object-contain">
+    <img src="logo.webp" alt="SC Volt" class="h-9 w-auto object-contain">
     <p class="text-xs text-gray-600 text-center">© 2026 SC Volt. Todos los derechos reservados. · Renta de Plantas de Luz Móviles · CDMX</p>
     <div class="flex gap-6 text-sm">
       <a href="tel:5545501945" class="font-semibold transition-colors hover:opacity-80" style="color:#FFC107;">55-4550-1945</a>
@@ -666,6 +671,7 @@
     </div>
   </div>
 </footer>
+</main>
 
 <script>
   // Capacity bars: fill on scroll into view
