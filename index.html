@@ -260,19 +260,19 @@
     <filter id="electric-btn-filter" colorInterpolationFilters="sRGB" x="-20%" y="-50%" width="140%" height="200%">
       <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1"/>
       <feOffset in="noise1" dx="0" dy="0" result="oN1">
-        <animate attributeName="dy" values="700;0" dur="6s" repeatCount="indefinite" calcMode="linear"/>
+        <animate attributeName="dy" values="700;0;700" dur="7.3s" repeatCount="indefinite" calcMode="linear"/>
       </feOffset>
       <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1"/>
       <feOffset in="noise2" dx="0" dy="0" result="oN2">
-        <animate attributeName="dy" values="0;-700" dur="6s" repeatCount="indefinite" calcMode="linear"/>
+        <animate attributeName="dy" values="0;-700;0" dur="5.7s" repeatCount="indefinite" calcMode="linear"/>
       </feOffset>
       <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise3" seed="2"/>
       <feOffset in="noise3" dx="0" dy="0" result="oN3">
-        <animate attributeName="dx" values="490;0" dur="6s" repeatCount="indefinite" calcMode="linear"/>
+        <animate attributeName="dx" values="490;0;490" dur="9.1s" repeatCount="indefinite" calcMode="linear"/>
       </feOffset>
       <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise4" seed="2"/>
       <feOffset in="noise4" dx="0" dy="0" result="oN4">
-        <animate attributeName="dx" values="0;-490" dur="6s" repeatCount="indefinite" calcMode="linear"/>
+        <animate attributeName="dx" values="0;-490;0" dur="6.8s" repeatCount="indefinite" calcMode="linear"/>
       </feOffset>
       <feComposite in="oN1" in2="oN2" result="part1"/>
       <feComposite in="oN3" in2="oN4" result="part2"/>
