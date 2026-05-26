@@ -180,6 +180,33 @@
     to { --spark-angle: 360deg; }
   }
 
+  /* Spark on filled (yellow) button — white streak */
+  .btn-spark-filled {
+    position: relative;
+    isolation: isolate;
+  }
+  .btn-spark-filled::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--spark-angle),
+      transparent 0%,
+      transparent 82%,
+      rgba(255,255,255,0.5) 90%,
+      rgba(255,255,255,0.95) 93%,
+      rgba(255,255,255,0.5) 96%,
+      transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: outline-spark 3s linear infinite;
+    pointer-events: none;
+  }
+
   /* Capacity bars */
   .cap-bar {
     width: 18px;
@@ -255,7 +282,7 @@
 
         <div class="flex flex-wrap gap-4">
           <a href="#contacto"
-             class="text-black px-8 py-4 font-semibold transition-all glow btn-pulse text-sm"
+             class="text-black px-8 py-4 font-semibold transition-all btn-spark-filled text-sm"
              style="background:#FFC107;">
             Solicitar Cotización
           </a>
@@ -403,7 +430,7 @@
 
         </div>
         <a href="#contacto"
-           class="block w-full py-4 text-black font-semibold transition-all text-center tracking-wide mt-8 text-sm hover:opacity-90"
+           class="block w-full py-4 text-black font-semibold transition-all text-center tracking-wide mt-8 text-sm hover:opacity-90 btn-spark-filled"
            style="background:#FFC107;">
           Solicitar Cotización
         </a>
@@ -539,7 +566,7 @@
           </div>
 
           <button type="submit"
-                  class="w-full py-4 text-black font-semibold transition-all text-sm tracking-wide hover:opacity-90 glow btn-pulse"
+                  class="w-full py-4 text-black font-semibold transition-all text-sm tracking-wide hover:opacity-90 btn-spark-filled"
                   style="background:#FFC107;">
             Enviar Solicitud
           </button>
