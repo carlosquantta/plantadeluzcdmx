@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SC Volt – Renta de Plantas de Luz Móviles</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   * { font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
@@ -131,6 +131,42 @@
     border-bottom: 1px solid rgba(255,193,7,0.1);
   }
 
+  /* Normalize date input height on mobile */
+  input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+    line-height: 1.5;
+    min-height: unset;
+    height: auto;
+  }
+  input[type="date"]::-webkit-date-and-time-value {
+    text-align: left;
+    margin: 0;
+  }
+
+  /* Spark shimmer on header button */
+  .btn-spark {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-spark::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,193,7,0.35), transparent);
+    animation: btn-spark-travel 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes btn-spark-travel {
+    0%   { left: -30%; opacity: 0; }
+    8%   { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { left: 130%; opacity: 0; }
+  }
+
   /* Capacity bars */
   .cap-bar {
     width: 18px;
@@ -158,7 +194,7 @@
       <a href="#contacto"    class="hover:text-yellow-400 transition-colors">Contacto</a>
     </nav>
     <a href="tel:5545501945"
-       class="border border-yellow-400/50 px-5 py-2 text-sm font-bold text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all">
+       class="btn-spark border border-yellow-400/50 px-5 py-2 text-sm font-semibold text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all">
       Llamar Ahora
     </a>
   </div>
@@ -174,7 +210,7 @@
 
       <!-- Left: text -->
       <div>
-        <span class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-bold tracking-widest uppercase"
+        <span class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-semibold tracking-widest uppercase"
               style="background:rgba(255,193,7,0.1);border:1px solid rgba(255,193,7,0.3);color:#FFC107;">
           <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M11 3L5 13h5l-1 4 6-10h-5l1-4z"/></svg>
           OPERACIONALMENTE CRÍTICO
@@ -183,35 +219,35 @@
         <h1 class="text-6xl md:text-7xl text-white leading-none mb-2">PLANTA DE</h1>
         <h1 class="text-6xl md:text-7xl leading-none mb-6 text-glow" style="color:#FFC107;">LUZ MÓVIL</h1>
 
-        <p class="text-sm font-bold tracking-widest uppercase text-gray-300 mb-1">ENERGÍA CONFIABLE DONDE</p>
-        <p class="text-sm font-bold tracking-widest uppercase mb-10" style="color:#FFC107;">NO HAY MARGEN DE ERROR</p>
+        <p class="text-sm font-semibold tracking-widest uppercase text-gray-300 mb-1">ENERGÍA CONFIABLE DONDE</p>
+        <p class="text-sm font-semibold tracking-widest uppercase mb-10" style="color:#FFC107;">NO HAY MARGEN DE ERROR</p>
 
         <!-- Stats -->
         <div class="flex flex-wrap gap-8 mb-10">
           <div>
-            <p class="text-3xl font-black text-white" style="font-family:'Bebas Neue',sans-serif;">80–250 <span style="color:#FFC107;font-size:1.1rem;">kVA</span></p>
+            <p class="text-3xl font-semibold text-white" style="font-family:'Bebas Neue',sans-serif;">80–250 <span style="color:#FFC107;font-size:1.1rem;">kVA</span></p>
             <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Rango de capacidad</p>
           </div>
           <div class="w-px bg-white/10 hidden sm:block"></div>
           <div>
-            <p class="text-3xl font-black text-white" style="font-family:'Bebas Neue',sans-serif;">24<span style="color:#FFC107;font-size:1.1rem;">/7</span></p>
+            <p class="text-3xl font-semibold text-white" style="font-family:'Bebas Neue',sans-serif;">24<span style="color:#FFC107;font-size:1.1rem;">/7</span></p>
             <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Soporte técnico</p>
           </div>
           <div class="w-px bg-white/10 hidden sm:block"></div>
           <div>
-            <p class="text-3xl font-black text-white" style="font-family:'Bebas Neue',sans-serif;">100<span style="color:#FFC107;font-size:1.1rem;">%</span></p>
+            <p class="text-3xl font-semibold text-white" style="font-family:'Bebas Neue',sans-serif;">100<span style="color:#FFC107;font-size:1.1rem;">%</span></p>
             <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Combustible incluido</p>
           </div>
         </div>
 
         <div class="flex flex-wrap gap-4">
           <a href="#contacto"
-             class="text-black px-8 py-4 font-black transition-all glow btn-pulse text-sm"
+             class="text-black px-8 py-4 font-semibold transition-all glow btn-pulse text-sm"
              style="background:#FFC107;">
             Solicitar Cotización
           </a>
           <a href="tel:5545501945"
-             class="border border-gray-600 hover:border-yellow-400 text-white px-8 py-4 font-bold transition-all text-sm flex items-center gap-2">
+             class="border border-gray-600 hover:border-yellow-400 text-white px-8 py-4 font-semibold transition-all text-sm flex items-center gap-2">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.47 5.47l.772-1.548a1 1 0 011.06-.539l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
             55-4550-1945
           </a>
@@ -241,7 +277,7 @@
 
       <!-- Left: features -->
       <div>
-        <span class="text-xs font-bold tracking-widest uppercase" style="color:#FFC107;">Lo que incluimos</span>
+        <span class="text-xs font-semibold tracking-widest uppercase" style="color:#FFC107;">Lo que incluimos</span>
         <h2 class="text-5xl text-white mt-3 mb-6">SOLUCIÓN INTEGRAL DE ENERGÍA</h2>
         <p class="text-gray-400 mb-8 leading-relaxed">
           Todo lo necesario para garantizar la continuidad de su suministro eléctrico en eventos, construcciones e industria. Sin costos ocultos ni sorpresas.
@@ -256,7 +292,7 @@
               </svg>
             </div>
             <div>
-              <p class="font-bold text-white text-sm">Operador especializado durante todo el servicio</p>
+              <p class="font-semibold text-white text-sm">Operador especializado durante todo el servicio</p>
               <p class="text-xs text-gray-400 mt-1">Personal técnico certificado monitorea permanentemente la carga.</p>
             </div>
           </div>
@@ -268,7 +304,7 @@
               </svg>
             </div>
             <div>
-              <p class="font-bold text-white text-sm">Combustible incluido durante el servicio</p>
+              <p class="font-semibold text-white text-sm">Combustible incluido durante el servicio</p>
               <p class="text-xs text-gray-400 mt-1">Sin costos adicionales ni logística de su parte.</p>
             </div>
           </div>
@@ -280,7 +316,7 @@
               </svg>
             </div>
             <div>
-              <p class="font-bold text-white text-sm">75m cable feeder · Extintor · 5 protectores de cable</p>
+              <p class="font-semibold text-white text-sm">75m cable feeder · Extintor · 5 protectores de cable</p>
               <p class="text-xs text-gray-400 mt-1">Instalación y desmontaje incluidos.</p>
             </div>
           </div>
@@ -289,7 +325,7 @@
 
       <!-- Right: capacidades con animación -->
       <div id="cap-section" class="card p-8" style="border-color:rgba(255,193,7,0.25);">
-        <p class="text-xs font-black tracking-widest uppercase mb-6" style="color:#FFC107;">CAPACIDADES DISPONIBLES</p>
+        <p class="text-xs font-semibold tracking-widest uppercase mb-6" style="color:#FFC107;">CAPACIDADES DISPONIBLES</p>
         <div class="space-y-2">
 
           <!-- 80 kVA — 2/8 -->
@@ -344,7 +380,7 @@
 
           <!-- 250 kVA — 8/8 máxima -->
           <div class="cap-row flex items-center justify-between py-3" data-active="8">
-            <span class="font-black text-sm w-24" style="color:#FFC107;">250 kVA <span class="text-xs font-bold">MÁX</span></span>
+            <span class="font-semibold text-sm w-24" style="color:#FFC107;">250 kVA <span class="text-xs font-semibold">MÁX</span></span>
             <div class="flex gap-1.5">
               <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
               <div class="cap-bar"></div><div class="cap-bar"></div><div class="cap-bar"></div>
@@ -354,7 +390,7 @@
 
         </div>
         <a href="#contacto"
-           class="block w-full py-4 text-black font-black transition-all text-center tracking-wide mt-8 text-sm hover:opacity-90"
+           class="block w-full py-4 text-black font-semibold transition-all text-center tracking-wide mt-8 text-sm hover:opacity-90"
            style="background:#FFC107;">
           Solicitar Cotización
         </a>
@@ -371,7 +407,7 @@
   <div class="max-w-7xl mx-auto px-6">
 
     <div class="text-center mb-14">
-      <span class="text-xs font-bold tracking-widest uppercase" style="color:#FFC107;">Datos de contacto</span>
+      <span class="text-xs font-semibold tracking-widest uppercase" style="color:#FFC107;">Datos de contacto</span>
       <h2 class="text-5xl text-white mt-3">SOLICITA TU COTIZACIÓN</h2>
       <p class="text-gray-400 mt-3 max-w-lg mx-auto text-sm">
         Gracias por contactar a SC Volt. Completa el formulario y nuestro equipo te dará seguimiento a la brevedad.
@@ -390,8 +426,8 @@
             </svg>
           </div>
           <div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest font-bold mb-1">Teléfono</p>
-            <a href="tel:5545501945" class="font-bold text-white hover:text-yellow-400 transition-colors">55-4550-1945</a>
+            <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-1">Teléfono</p>
+            <a href="tel:5545501945" class="font-semibold text-white hover:text-yellow-400 transition-colors">55-4550-1945</a>
           </div>
         </div>
         <div class="card p-6 flex items-center gap-4">
@@ -402,12 +438,12 @@
             </svg>
           </div>
           <div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest font-bold mb-1">Correo</p>
-            <a href="mailto:contacto@plantadeluzcdmx.com" class="font-bold text-white hover:text-yellow-400 transition-colors text-sm break-all">contacto@plantadeluzcdmx.com</a>
+            <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-1">Correo</p>
+            <a href="mailto:contacto@plantadeluzcdmx.com" class="font-semibold text-white hover:text-yellow-400 transition-colors text-sm break-all">contacto@plantadeluzcdmx.com</a>
           </div>
         </div>
         <div class="card p-6">
-          <p class="text-xs text-gray-500 uppercase tracking-widest font-bold mb-3">Simón Vallenilla</p>
+          <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Simón Vallenilla</p>
           <p class="text-sm text-gray-400 leading-relaxed">Ciudad de México y área metropolitana. Disponibles 24/7 para eventos, construcción e industria.</p>
         </div>
       </div>
@@ -490,7 +526,7 @@
           </div>
 
           <button type="submit"
-                  class="w-full py-4 text-black font-black transition-all text-sm tracking-wide hover:opacity-90 glow btn-pulse"
+                  class="w-full py-4 text-black font-semibold transition-all text-sm tracking-wide hover:opacity-90 glow btn-pulse"
                   style="background:#FFC107;">
             Enviar Solicitud
           </button>
@@ -507,8 +543,8 @@
     <img src="logo.jpeg" alt="SC Volt" class="h-9 w-auto object-contain">
     <p class="text-xs text-gray-600 text-center">© 2026 SC Volt. Todos los derechos reservados. · Renta de Plantas de Luz Móviles · CDMX</p>
     <div class="flex gap-6 text-sm">
-      <a href="tel:5545501945" class="font-bold transition-colors hover:opacity-80" style="color:#FFC107;">55-4550-1945</a>
-      <a href="mailto:contacto@plantadeluzcdmx.com" class="font-bold transition-colors hover:opacity-80" style="color:#FFC107;">Correo</a>
+      <a href="tel:5545501945" class="font-semibold transition-colors hover:opacity-80" style="color:#FFC107;">55-4550-1945</a>
+      <a href="mailto:contacto@plantadeluzcdmx.com" class="font-semibold transition-colors hover:opacity-80" style="color:#FFC107;">Correo</a>
     </div>
   </div>
 </footer>
