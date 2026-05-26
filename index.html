@@ -144,27 +144,40 @@
     margin: 0;
   }
 
-  /* Spark shimmer on header button */
+  /* Spark that travels along the button border */
+  @property --spark-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
   .btn-spark {
     position: relative;
-    overflow: hidden;
+    isolation: isolate;
   }
   .btn-spark::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: -30%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,193,7,0.35), transparent);
-    animation: btn-spark-travel 4s ease-in-out infinite;
+    inset: -1px;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--spark-angle),
+      transparent 0%,
+      transparent 82%,
+      rgba(255,193,7,0.4) 90%,
+      #fffde7 93%,
+      rgba(255,193,7,0.4) 96%,
+      transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: outline-spark 3s linear infinite;
     pointer-events: none;
   }
-  @keyframes btn-spark-travel {
-    0%   { left: -30%; opacity: 0; }
-    8%   { opacity: 1; }
-    88%  { opacity: 1; }
-    100% { left: 130%; opacity: 0; }
+  @keyframes outline-spark {
+    to { --spark-angle: 360deg; }
   }
 
   /* Capacity bars */
