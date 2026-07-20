@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Gracias! – SC Volt</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" href="tailwind.css">
+<link rel="stylesheet" href="tailwind.css">
+<style>
+  * { font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
+  h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+
+  body {
+    background-color: #080808;
+    color: #f8fafc;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  body::-webkit-scrollbar { display: none; }
+
+  .bg-dynamic {
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 50%, rgba(180,90,0,0.18) 0%, transparent 70%),
+      #080808;
+  }
+
+  .dot-grid { position: relative; }
+  .dot-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.04) 1px, transparent 0);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,193,7,0.1);
+  }
+
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,193,7,0.18);
+    border-radius: 0;
+  }
+
+  @keyframes pulse-gold {
+    0%,100% { box-shadow: 0 0 0 0 rgba(255,193,7,0.45); }
+    50%      { box-shadow: 0 0 0 14px rgba(255,193,7,0); }
+  }
+
+  .check-circle {
+    width: 72px;
+    height: 72px;
+    border: 2px solid #FFC107;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse-gold 2.5s ease infinite;
+  }
+
+  @keyframes spark-travel {
+    0%   { left: -15%; opacity: 0; }
+    5%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { left: 115%; opacity: 0; }
+  }
+  .divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,193,7,0.2), transparent);
+    overflow: hidden;
+  }
+  .divider::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -15%;
+    width: 140px;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, rgba(255,193,7,0.6), #fffde7, rgba(255,193,7,0.6), transparent);
+    filter: blur(1.5px);
+    animation: spark-travel 5s ease-in-out infinite;
+  }
+</style>
+</head>
+<body>
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center select-none">
+      <img src="logo.webp" alt="SC Volt" class="h-10 w-auto object-contain" width="586" height="160">
+    </a>
+    <a href="tel:5545501945" class="text-sm font-semibold transition-colors hover:opacity-80" style="color:#FFC107;">
+      55-4550-1945
+    </a>
+  </div>
+</header>
+
+<main class="flex-1 flex items-center justify-center bg-dynamic dot-grid pt-16">
+  <div class="relative z-10 max-w-xl mx-auto px-6 py-24 text-center">
+
+    <div class="check-circle mx-auto mb-8">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+
+    <span class="text-xs font-semibold tracking-widest uppercase" style="color:#FFC107;">Solicitud recibida</span>
+    <h1 class="text-6xl text-white mt-3 mb-4">¡GRACIAS!</h1>
+    <p class="text-gray-400 leading-relaxed mb-10">
+      Tu solicitud fue enviada correctamente. Nuestro equipo la revisará y te contactará a la brevedad para darte seguimiento.
+    </p>
+
+    <div class="card p-6 text-left mb-10" style="border-color:rgba(255,193,7,0.25);">
+      <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:#FFC107;">¿Necesitas respuesta inmediata?</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="tel:5545501945"
+           class="flex items-center gap-3 text-sm font-semibold text-white hover:text-yellow-400 transition-colors">
+          <svg class="w-4 h-4 fill-current flex-shrink-0" style="color:#FFC107;" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.47 5.47l.772-1.548a1 1 0 011.06-.539l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          55-4550-1945
+        </a>
+        <a href="mailto:contacto@plantadeluzcdmx.com"
+           class="flex items-center gap-3 text-sm font-semibold text-white hover:text-yellow-400 transition-colors">
+          <svg class="w-4 h-4 flex-shrink-0" style="color:#FFC107;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+          contacto@plantadeluzcdmx.com
+        </a>
+      </div>
+    </div>
+
+    <a href="/" class="inline-block border border-yellow-400/50 px-8 py-3 text-sm font-semibold text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all">
+      Volver al inicio
+    </a>
+
+  </div>
+</main>
+
+<div class="divider"></div>
+
+<footer class="py-8 border-t border-white/5" style="background:#050505;">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <img src="logo.webp" alt="SC Volt" class="h-8 w-auto object-contain" width="586" height="160">
+    <p class="text-xs text-gray-600 text-center">© 2026 SC Volt. Todos los derechos reservados. · CDMX</p>
+    <a href="tel:5545501945" class="font-semibold text-sm transition-colors hover:opacity-80" style="color:#FFC107;">55-4550-1945</a>
+  </div>
+</footer>
+
+</body>
+</html>
