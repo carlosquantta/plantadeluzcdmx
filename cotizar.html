@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitar Cotización – SC Volt | Renta de Plantas de Luz CDMX</title>
+<meta name="description" content="Solicita tu cotización de renta de planta de luz en CDMX. Generadores 80–150 kVA con operador, combustible y cableado incluidos. Respuesta inmediata.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.plantadeluzcdmx.com/cotizar">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18338485045"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18338485045');
+</script>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" href="tailwind.css">
+<link rel="stylesheet" href="tailwind.css">
+<style>
+  * { font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
+  h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+
+  body {
+    background-color: #080808;
+    color: #f8fafc;
+    overflow-x: hidden;
+    scrollbar-width: none;
+  }
+  body::-webkit-scrollbar { display: none; }
+
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,193,7,0.18);
+    border-radius: 0;
+    transition: border-color .25s, box-shadow .25s;
+  }
+
+  header {
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,193,7,0.1);
+  }
+
+  .divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,193,7,0.2), transparent);
+    overflow: hidden;
+  }
+  .divider::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -15%;
+    width: 140px;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, rgba(255,193,7,0.6), #fffde7, rgba(255,193,7,0.6), transparent);
+    filter: blur(1.5px);
+    animation: spark-travel 5s ease-in-out infinite;
+  }
+  @keyframes spark-travel {
+    0%   { left: -15%; opacity: 0; }
+    5%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { left: 115%; opacity: 0; }
+  }
+
+  .form-input {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,193,7,0.2);
+    border-radius: 0;
+    padding: 12px 14px;
+    color: #fff;
+    font-size: 0.875rem;
+    transition: border-color .2s, background .2s;
+    outline: none;
+  }
+  .form-input:focus {
+    border-color: rgba(255,193,7,0.6);
+    background: rgba(255,193,7,0.05);
+  }
+  .form-input::placeholder { color: rgba(255,255,255,0.25); }
+
+  select.form-input {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23FFC107'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    cursor: pointer;
+  }
+  select.form-input option { background: #111; color: #fff; }
+
+  .form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9ca3af;
+    margin-bottom: 8px;
+  }
+  .required { color: #FFC107; }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 10px;
+    transition: background .2s;
+  }
+  .check-item:hover { background: rgba(255,193,7,0.05); }
+  .check-item input[type="checkbox"] { accent-color: #FFC107; width: 16px; height: 16px; }
+  .check-item span { font-size: 0.875rem; color: #d1d5db; }
+
+  input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+    line-height: 1.5;
+    min-height: unset;
+    height: auto;
+  }
+  input[type="date"]::-webkit-date-and-time-value { text-align: left; margin: 0; }
+
+  /* Electric button */
+  .elec-btn-wrap {
+    position: relative;
+    display: inline-flex;
+    isolation: isolate;
+  }
+  .elec-btn-wrap.block-btn { display: flex; width: 100%; }
+  .elec-bd, .elec-g1, .elec-g2 {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .elec-bd { border: 1.5px solid rgba(255,193,7,0.45); filter: none; }
+  .elec-g1 { border: 1.5px solid rgba(255,193,7,0.3); filter: blur(1px); opacity: 0; }
+  .elec-g2 { border: 1.5px solid #FFC107; filter: blur(5px); opacity: 0; }
+  .elec-bg-glow {
+    position: absolute;
+    inset: -4px;
+    filter: blur(20px);
+    opacity: 0;
+    background: #FFC107;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.25s ease;
+  }
+  .elec-btn-wrap:hover .elec-bd { border-color: #FFC107; filter: url(#electric-btn-filter); }
+  .elec-btn-wrap:hover .elec-g1,
+  .elec-btn-wrap:hover .elec-g2 { opacity: 1; }
+  .elec-btn-wrap:hover .elec-bg-glow { opacity: 0.18; }
+  .elec-label {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: rgba(255,193,7,0.06);
+    color: #FFC107;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background .2s;
+  }
+  .elec-label:hover { background: rgba(255,193,7,0.1); }
+</style>
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+  <defs>
+    <filter id="electric-btn-filter" colorInterpolationFilters="sRGB" x="-20%" y="-50%" width="140%" height="200%">
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1"/>
+      <feOffset in="noise1" dx="0" dy="0" result="oN1">
+        <animate attributeName="dy" values="700;0;700" dur="7.3s" repeatCount="indefinite" calcMode="linear"/>
+      </feOffset>
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1"/>
+      <feOffset in="noise2" dx="0" dy="0" result="oN2">
+        <animate attributeName="dy" values="0;-700;0" dur="5.7s" repeatCount="indefinite" calcMode="linear"/>
+      </feOffset>
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise3" seed="2"/>
+      <feOffset in="noise3" dx="0" dy="0" result="oN3">
+        <animate attributeName="dx" values="490;0;490" dur="9.1s" repeatCount="indefinite" calcMode="linear"/>
+      </feOffset>
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise4" seed="2"/>
+      <feOffset in="noise4" dx="0" dy="0" result="oN4">
+        <animate attributeName="dx" values="0;-490;0" dur="6.8s" repeatCount="indefinite" calcMode="linear"/>
+      </feOffset>
+      <feComposite in="oN1" in2="oN2" result="part1"/>
+      <feComposite in="oN3" in2="oN4" result="part2"/>
+      <feBlend in="part1" in2="part2" mode="color-dodge" result="combined"/>
+      <feDisplacementMap in="SourceGraphic" in2="combined" scale="15" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center select-none">
+      <img src="logo.webp" alt="SC Volt" class="h-10 w-auto object-contain" fetchpriority="high" width="586" height="160">
+    </a>
+    <a href="tel:5545501945"
+       class="border border-yellow-400/50 px-5 py-2 text-sm font-semibold text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all">
+      Llamar Ahora
+    </a>
+  </div>
+</header>
+
+<main>
+<section class="pt-32 pb-20" style="background:#080808;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center mb-14">
+      <span class="text-xs font-semibold tracking-widest uppercase" style="color:#FFC107;">Datos de contacto</span>
+      <h1 class="text-5xl text-white mt-3">SOLICITA TU COTIZACIÓN</h1>
+      <p class="text-gray-400 mt-3 max-w-lg mx-auto text-sm">
+        Completa el formulario y nuestro equipo te dará seguimiento a la brevedad.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+      <!-- Contact info -->
+      <div class="space-y-6">
+        <div class="card p-6 flex items-center gap-4">
+          <div class="w-10 h-10 flex items-center justify-center flex-shrink-0" style="background:rgba(255,193,7,0.12);">
+            <svg class="w-5 h-5 fill-current" style="color:#FFC107;" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.47 5.47l.772-1.548a1 1 0 011.06-.539l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-1">Teléfono</p>
+            <a href="tel:5545501945" class="font-semibold text-white hover:text-yellow-400 transition-colors">55-4550-1945</a>
+          </div>
+        </div>
+        <div class="card p-6 flex items-center gap-4">
+          <div class="w-10 h-10 flex items-center justify-center flex-shrink-0" style="background:rgba(255,193,7,0.12);">
+            <svg class="w-5 h-5" style="color:#FFC107;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-1">Correo</p>
+            <a href="mailto:contacto@plantadeluzcdmx.com" class="font-semibold text-white hover:text-yellow-400 transition-colors text-sm break-all">contacto@plantadeluzcdmx.com</a>
+          </div>
+        </div>
+        <div class="card p-6">
+          <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Cobertura</p>
+          <p class="text-sm text-gray-400 leading-relaxed">Ciudad de México y área metropolitana. Disponibles 24/7 para eventos, construcción e industria.</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="lg:col-span-2">
+        <form action="https://formsubmit.co/contacto@plantadeluzcdmx.com" method="POST" class="card p-8 space-y-5">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nueva solicitud de cotización – SC Volt">
+          <input type="hidden" name="_next" value="https://www.plantadeluzcdmx.com/gracias.html">
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="f-nombre" class="form-label">Nombre <span class="required">*</span></label>
+              <input id="f-nombre" type="text" name="nombre" required placeholder="Tu nombre completo" class="form-input">
+            </div>
+            <div>
+              <label for="f-correo" class="form-label">Correo electrónico <span class="required">*</span></label>
+              <input id="f-correo" type="email" name="correo" required placeholder="correo@ejemplo.com" class="form-input">
+            </div>
+          </div>
+
+          <div>
+            <label for="f-tel" class="form-label">Número de teléfono <span class="required">*</span></label>
+            <input id="f-tel" type="tel" name="telefono" required placeholder="55 0000 0000" class="form-input">
+          </div>
+
+          <div>
+            <label class="form-label">Tipo de evento <span class="required">*</span></label>
+            <div class="card p-3 space-y-1" style="border-color:rgba(255,255,255,0.08);">
+              <label class="check-item">
+                <input type="checkbox" name="tipo_evento" value="Social (bodas)">
+                <span>Social (bodas)</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="tipo_evento" value="Corporativo (empresariales, galerías de arte, concierto)">
+                <span>Corporativo (empresariales, galerías de arte, concierto)</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="tipo_evento" value="Otro (Obras, Restaurantes, Bar, Hospitales, Plaza comercial)">
+                <span>Otro (Obras, Restaurantes, Bar, Hospitales, Plaza comercial)</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label for="f-cap" class="form-label">Capacidad requerida <span class="required">*</span></label>
+            <select id="f-cap" name="capacidad" required class="form-input">
+              <option value="" disabled selected>Selecciona una capacidad</option>
+              <option value="80 kVA">80 kVA</option>
+              <option value="100 kVA">100 kVA</option>
+              <option value="125 kVA">125 kVA</option>
+              <option value="150 kVA">150 kVA</option>
+              <option value="Pendiente revisar">Pendiente revisar</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="f-horario" class="form-label">Horario del evento <span class="required">*</span></label>
+              <input id="f-horario" type="text" name="horario" required placeholder="Ej. 18:00 – 02:00" class="form-input">
+            </div>
+            <div>
+              <label for="f-fecha" class="form-label">Fecha del evento <span class="required">*</span></label>
+              <input id="f-fecha" type="date" name="fecha" required class="form-input" style="color-scheme:dark;">
+            </div>
+          </div>
+
+          <div>
+            <label for="f-dir" class="form-label">Dirección del evento <span class="required">*</span></label>
+            <input id="f-dir" type="text" name="direccion" required placeholder="Calle, número, colonia, alcaldía" class="form-input">
+          </div>
+
+          <div>
+            <label class="form-label">Adicionales</label>
+            <p class="text-xs text-gray-500 mb-3">Todos nuestros servicios incluyen 75m de cableado, 5 protectores de cable, operador y turno de 12 horas.</p>
+            <div class="card p-3 space-y-1" style="border-color:rgba(255,255,255,0.08);">
+              <label class="check-item">
+                <input type="checkbox" name="adicionales" value="Extra de cableado">
+                <span>Extra de cableado</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="adicionales" value="Protectores de cable">
+                <span>Protectores de cable</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="adicionales" value="Hora extra">
+                <span>Hora extra</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="elec-btn-wrap block-btn" style="margin-top:0;">
+            <div class="elec-bd"></div><div class="elec-g1"></div><div class="elec-g2"></div>
+            <div class="elec-bg-glow"></div>
+            <button type="submit" class="elec-label">Enviar Solicitud</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="divider"></div>
+
+<footer class="py-8 border-t border-white/5" style="background:#050505;">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <img src="logo.webp" alt="SC Volt" class="h-8 w-auto object-contain" width="586" height="160">
+    <p class="text-xs text-gray-600 text-center">© 2026 SC Volt. Todos los derechos reservados. · CDMX</p>
+    <div class="flex gap-6 text-sm">
+      <a href="tel:5545501945" class="font-semibold transition-colors hover:opacity-80" style="color:#FFC107;">55-4550-1945</a>
+      <a href="mailto:contacto@plantadeluzcdmx.com" class="font-semibold transition-colors hover:opacity-80" style="color:#FFC107;">Correo</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
